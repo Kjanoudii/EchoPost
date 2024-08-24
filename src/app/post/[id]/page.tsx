@@ -71,9 +71,12 @@ const Page = ({ params }: PageProps) => {
 
   const deleteComment = (id: number) => {
     axios
-      .delete(`http://localhost:3001/comments/${id}`, {
-        headers: { accessToken: localStorage.getItem("accessToken") },
-      })
+      .delete(
+        `https://full-stack-api-janoudi-4dae713142ce.herokuapp.com/comments/${id}`,
+        {
+          headers: { accessToken: localStorage.getItem("accessToken") },
+        }
+      )
       .then(() => {
         setComments(
           comments.filter((val) => {
@@ -85,9 +88,12 @@ const Page = ({ params }: PageProps) => {
 
   const deletePost = (id: any) => {
     axios
-      .delete(`http://localhost:3001/posts/${id}`, {
-        headers: { accessToken: localStorage.getItem("accessToken") },
-      })
+      .delete(
+        `https://full-stack-api-janoudi-4dae713142ce.herokuapp.com/posts/${id}`,
+        {
+          headers: { accessToken: localStorage.getItem("accessToken") },
+        }
+      )
       .then(() => {
         router.push("/");
       });
@@ -96,7 +102,9 @@ const Page = ({ params }: PageProps) => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await axios.get(`http://localhost:3001/posts/byId/${id}`);
+        const res = await axios.get(
+          `https://full-stack-api-janoudi-4dae713142ce.herokuapp.com/posts/byId/${id}`
+        );
         setPost(res.data);
         console.log("This is the data:", res.data);
       } catch (error) {
@@ -106,7 +114,9 @@ const Page = ({ params }: PageProps) => {
 
     const fetchComments = async () => {
       try {
-        const res = await axios.get(`http://localhost:3001/comments/${id}`);
+        const res = await axios.get(
+          `https://full-stack-api-janoudi-4dae713142ce.herokuapp.com/comments/${id}`
+        );
         setComments(res.data);
         console.log("This is the data:", res.data);
       } catch (error) {

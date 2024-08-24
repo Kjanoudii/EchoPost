@@ -76,7 +76,7 @@ export default function Home() {
   const likeAPost = (postId: number) => {
     axios
       .post(
-        "http://localhost:3001/likes",
+        "https://full-stack-api-janoudi-4dae713142ce.herokuapp.com/likes",
         { PostId: postId },
         { headers: { accessToken: localStorage.getItem("accessToken") } }
       )
