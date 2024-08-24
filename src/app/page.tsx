@@ -23,10 +23,12 @@ export default function Home() {
   const { authState } = useContext(AuthContext);
   console.log(authState);
   const fetchData = () => {
-    axios.get("http://localhost:3001/posts").then((res) => {
-   setPostsData(res.data);
-      console.log("here is the data", res.data);
-    });
+    axios
+      .get("https://full-stack-api-janoudi-4dae713142ce.herokuapp.com/posts")
+      .then((res) => {
+        setPostsData(res.data);
+        console.log("here is the data", res.data);
+      });
     
   };
   useEffect(() => {

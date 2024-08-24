@@ -27,11 +27,15 @@ const Page = () => {
   });
   const onSubmit = (data: any) => {
     axios
-      .post("http://localhost:3001/posts", data, {
-        headers: {
-          accessToken: localStorage.getItem("accessToken"),
-        },
-      })
+      .post(
+        "https://full-stack-api-janoudi-4dae713142ce.herokuapp.com/posts",
+        data,
+        {
+          headers: {
+            accessToken: localStorage.getItem("accessToken"),
+          },
+        }
+      )
       .then((res) => {
         setPostsData(res.data);
         console.log("it worked");

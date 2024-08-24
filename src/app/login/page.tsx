@@ -15,7 +15,10 @@ function Login() {
     const data = { username, password };
     try {
       const response = await axios
-        .post("http://localhost:3001/auth/login", data)
+        .post(
+          "https://full-stack-api-janoudi-4dae713142ce.herokuapp.com/auth/login",
+          data
+        )
         .then((response) => {
           console.log("Login successful:", response.data.user);
           localStorage.setItem("accessToken", response.data.token);

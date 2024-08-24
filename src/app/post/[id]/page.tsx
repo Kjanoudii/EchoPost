@@ -42,7 +42,7 @@ const Page = ({ params }: PageProps) => {
   const addComment = () => {
     axios
       .post(
-        "http://localhost:3001/comments",
+        "https://full-stack-api-janoudi-4dae713142ce.herokuapp.com/comments",
         {
           commentBody: newComment,
           PostId: id,

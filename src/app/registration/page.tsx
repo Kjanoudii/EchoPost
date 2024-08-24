@@ -18,7 +18,10 @@ function Registration() {
  const onSubmit = async (data: any) => {
   console.log(data)
    try {
-     const response = await axios.post("http://localhost:3001/auth", data);
+     const response = await axios.post(
+       "https://full-stack-api-janoudi-4dae713142ce.herokuapp.com/auth",
+       data
+     );
      console.log("Registration successful:", response.data);
    } catch (error) {
      if (axios.isAxiosError(error)) {
