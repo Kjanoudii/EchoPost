@@ -3,8 +3,10 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-
+import { useRouter } from "next/navigation";
 function Registration() {
+
+   const router = useRouter();
   const initialValues = {
     username: "",
     password: "",
@@ -23,6 +25,7 @@ function Registration() {
        data
      );
      console.log("Registration successful:", response.data);
+      router.push("/login");
    } catch (error) {
      if (axios.isAxiosError(error)) {
        console.error(
@@ -34,6 +37,7 @@ function Registration() {
      }
    }
  };
+ 
 
   return (
     <div className="flex justify-center items-center h-screen">
