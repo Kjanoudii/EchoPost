@@ -1,4 +1,4 @@
-// File: C:\VSCodeProjects\NEXTJS-PROJECTS\fullstack-app - Copy\my-app\src\app\page.tsx
+// File: C:\VSCodeProjects\NEXTJS-PROJECTS\fullstack-app - client\my-app\src\app\page.tsx
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

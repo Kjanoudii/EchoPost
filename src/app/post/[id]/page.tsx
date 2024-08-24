@@ -129,14 +129,14 @@ const Page = ({ params }: PageProps) => {
   }, [id]);
 
   return (
-    <div className="postPage">
-      <div className="leftSide">
-        <div className="post " id="individual">
+    <div className="flex lg:flex-row flex-col w-full h-full px-1 pb-10">
+      <div className="leftSide ">
+        <div className="w-full md:w-[500px] h-[500px] rounded-[10px] flex flex-col mt-[50px] post">
           {post ? (
             <>
               <div className="title"> {post.title} </div>
               <div className="body px-5">{post.postText}</div>
-              <div className="footer py-2">
+              <div className="footer py-3">
                 {post.username}
                 {authState.username === post.username && (
                   <button
@@ -158,7 +158,7 @@ const Page = ({ params }: PageProps) => {
       <div className="rightSide">
         <div className="addCommentContainer">
           <input
-            className="px-2"
+            className="px-2 md:w-[250px] w-full "
             type="text"
             placeholder="Comment..."
             autoComplete="off"
@@ -169,10 +169,10 @@ const Page = ({ params }: PageProps) => {
           />
           <button onClick={addComment}> Add Comment</button>
         </div>
-        <div className="listOfComments">
+        <div className="listOfComments px-1">
           {comments.map((comment, key) => {
             return (
-              <div key={key} className="comment flex flex-col ">
+              <div key={key} className="comment flex flex-col md:w-9/12 w-full">
                 <div className="text-gray-500">{comment.username}</div>
 
                 <div className="flex gap-3 items-center justify-between font-semibold text-gray-800">

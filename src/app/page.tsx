@@ -88,32 +88,42 @@ export default function Home() {
   console.log("authenticated?",authState.status)
 
   return (
-    <div className="App">
-      {postsData.slice().reverse().map((item) => (
-        <div className="post" key={item.id}>
-          <h3 className="title">{item.title}</h3>
-          <div className="body px-4" onClick={() => router.push(`${`post/${item.id}`}`)}>
-            {item.postText}
-          </div>
-          <div className="footer  justify-between px-5 items-center py-2">
-            <div>{item.username}</div>
-            <div className="flex gap-2">
-              <ThumbUpIcon
-                className={` ${
-                  hasUserLikedPost(item.id, authState.id)
-                    ? "text-gray-500"
-                    : "text-gray-300"
-                } `}
-                onClick={() => {
-                  likeAPost(item.id);
-                }}
-              />
+    <div
+      className="lg:w-screen w-full h-full lg:h-auto flex flex-col lg:items-center lg:justify-center   
+      pt-2 lg:px-0 px-2 pb-2"
+    >
+      {postsData
+        .slice()
+        .reverse()
+        .map((item) => (
+          <div className="w-full lg:w-[400px] h-[300px]
+           rounded-[10px] flex flex-col mt-[50px] post" key={item.id}>
+            <h3 className="title">{item.title}</h3>
+            <div
+              className="body px-4"
+              onClick={() => router.push(`${`post/${item.id}`}`)}
+            >
+              {item.postText}
+            </div>
+            <div className="footer  justify-between px-5 items-center py-3">
+              <div>{item.username}</div>
+              <div className="flex gap-2">
+                <ThumbUpIcon
+                  className={` ${
+                    hasUserLikedPost(item.id, authState.id)
+                      ? "text-gray-500"
+                      : "text-gray-300"
+                  } `}
+                  onClick={() => {
+                    likeAPost(item.id);
+                  }}
+                />
 
-              <label>{item.Likes.length}</label>
+                <label>{item.Likes.length}</label>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
     </div>
   );
 }

@@ -7,6 +7,7 @@ import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 import icon from "../icons/icons8-administrator-male-24.png";
 import Image from "next/image";
+import MobileNavBar from "../components/MobileNavBar";
 const NavBar = () => {
   const pathname = usePathname();
 
@@ -17,9 +18,9 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="flex gap-2 items-center justify-evenly mt-3  ">
+      <div className="lg:flex gap-2 items-center justify-evenly mt-3 hidden">
         {authState.username && (
-          <div className="flex-1  text-gray-900 font-semibold flex justify-center items-center">
+          <div className="lg:flex-1 hidden  text-gray-900 font-semibold lg:flex justify-center items-center">
             <Image src={icon} alt="" />
             <h2
               className="
@@ -85,6 +86,21 @@ const NavBar = () => {
           )}
         </div>
         {authState.username && <div className="flex-1"></div>}
+      </div>
+      {/* {authState.username && (
+          <div className=" text-gray-900 flex flex-col  md:hidden font-semibold justify-center items-center">
+            <Image src={icon} alt="" />
+            <h2
+              className="
+            "
+            >
+              {authState.username}
+            </h2>
+          </div>
+        )} */}
+
+      <div className="lg:hidden">
+        <MobileNavBar />
       </div>
     </>
   );

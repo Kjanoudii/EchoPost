@@ -3,10 +3,8 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { useRouter } from "next/navigation";
-function Registration() {
 
-   const router = useRouter();
+function Registration() {
   const initialValues = {
     username: "",
     password: "",
@@ -20,12 +18,8 @@ function Registration() {
  const onSubmit = async (data: any) => {
   console.log(data)
    try {
-     const response = await axios.post(
-       "https://full-stack-api-janoudi-4dae713142ce.herokuapp.com/auth",
-       data
-     );
+     const response = await axios.post("https://full-stack-api-janoudi-4dae713142ce.herokuapp.com/auth", data);
      console.log("Registration successful:", response.data);
-      router.push("/login");
    } catch (error) {
      if (axios.isAxiosError(error)) {
        console.error(
@@ -37,10 +31,9 @@ function Registration() {
      }
    }
  };
- 
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen px-1">
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
@@ -54,7 +47,7 @@ function Registration() {
             autocomplete="off"
             id="inputCreatePost"
             name="username"
-            placeholder="(Ex. John123...)"
+            placeholder="Ex. John123..."
           />
 
           <label>Password: </label>

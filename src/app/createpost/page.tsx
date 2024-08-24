@@ -43,7 +43,7 @@ const Page = () => {
       });
   };
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center px-1">
      
       <div className="createPostPage">
         <Formik
@@ -52,13 +52,13 @@ const Page = () => {
           validationSchema={validation}
         >
           <Form className="formContainer">
-            <label>Title: </label>
+            <label>Title:</label>
             <ErrorMessage name="title" component="span" />
             <Field
               autocomplete="off"
               id="inputCreatePost"
               name="title"
-              placeholder="(Ex. Title...)"
+           
             />
             <label>Post: </label>
             <ErrorMessage name="postText" component="span" />
@@ -66,7 +66,7 @@ const Page = () => {
               autocomplete="off"
               id="inputCreatePost"
               name="postText"
-              placeholder="(Ex. Post...)"
+             
             />
 
             <button type="submit">Create Post</button>
