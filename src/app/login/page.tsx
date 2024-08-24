@@ -4,6 +4,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
+import Link from "next/link";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -62,7 +63,14 @@ function Login() {
 
       <button onClick={login}>Login</button>
 
-      {errorMessage && <div className="errorMessage">{errorMessage}</div>}
+      {errorMessage && <div className="mb-4 text-red-500">{errorMessage}</div>}
+
+      <div className="text-center">
+        <span className="text-sm text-gray-600">Don’t have an account? </span>
+        <Link href="/registration">
+          <p className="text-sm text-blue-500 hover:underline">Register here</p>
+        </Link>
+      </div>
     </div>
   );
 }

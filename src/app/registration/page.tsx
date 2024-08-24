@@ -3,7 +3,7 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-
+import Link from "next/link";
 function Registration() {
   const initialValues = {
     username: "",
@@ -42,8 +42,7 @@ function Registration() {
         <Form className="formContainer">
           <label>Username: </label>
           <ErrorMessage name="username" component="span" />
-          <Field 
-        
+          <Field
             autocomplete="off"
             id="inputCreatePost"
             name="username"
@@ -61,6 +60,16 @@ function Registration() {
           />
 
           <button type="submit"> Register</button>
+          <div className="text-left ml-3">
+            <span className="text-sm text-gray-600">
+              Already have an account?{" "}
+            </span>
+            <Link href="/login">
+              <p className="text-sm text-blue-500 hover:underline">
+                Login here
+              </p>
+            </Link>
+          </div>
         </Form>
       </Formik>
     </div>
